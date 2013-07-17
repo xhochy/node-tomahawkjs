@@ -1,25 +1,26 @@
 {
-    "name": "tomahawkjs",
-    "preferGlobal": false,
-    "version": "0.1.0",
-    "author": "Uwe L. Korn <uwelk@xhochy.com>",
-    "description": "Implementation of the JS plugins API from Tomahawk for NodeJS",
-    "contributors": [
-    ],
-    "main": "./lib/tomahawkjs",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/xhochy/tomahawk-nodejs-tomahawkjs.git"
-    },
-    "keywords": [
-        "tomahawk",
-        "music",
-        "player"
-    ],
-    "dependencies" : {
-    },
-    "license": "MIT",
-    "engines": {
-        "node": ">=0.6"
-    }
+  "name": "tomahawkjs",
+  "preferGlobal": false,
+  "version": "0.1.0",
+  "author": "Uwe L. Korn <uwelk@xhochy.com>",
+  "description": "Implementation of the JS plugins API from Tomahawk for NodeJS",
+  "contributors": [],
+  "main": "./lib/tomahawkjs.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xhochy/tomahawk-nodejs-tomahawkjs.git"
+  },
+  "keywords": [
+    "tomahawk",
+    "music",
+    "player"
+  ],
+  "dependencies": {
+    "unzip": "~0.1.8",
+    "pullstream": "~0.4.0"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=0.6"
+  }
 }
