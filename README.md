@@ -30,3 +30,17 @@ TomahawkJS.loadAxe(pathtoaxe, function(err, axe) {
   });
 });
 ```
+
+### Checking for a capability
+
+As the time of writing, Tomahawk resolvers were all implicitly able to resolve from a combination of Artist and Title (and Albumname) to a stream URL if their feeding service provided this tune. Furthermore there are some other capabilities that can be implemented:
+
+* `browsable`: Resolver exposes a music collection that can be browsed.
+* `playlistsync`: Can sync playlists
+* `urllookup`: Can resolve from an URL to a combination of Artist+Title/Album/Playlist
+
+Checking for one of these can be done via:
+
+```javascript
+context.hasCapability('urllookup')
+```
