@@ -45,6 +45,24 @@ Checking for one of these can be done via:
 context.hasCapability('urllookup')
 ```
 
+### Resolving
+
+The main functionality of a Tomahawk resolver is to find a stremable URL for a combination of artist and song title and optionally an album.
+The requests for resolving should be indentified with a unqiue id for each query.
+Alternatively we can search a given string without specifying explicitly artist or title.
+
+```javascript
+context.on('track-result', function (qid, result) {
+  console.log('Found a new streamable URL for request ' + qid + ':' + result.url);
+});
+
+// Search for a streambale URL for song title by artist on album.
+instance.resolve(someId1, artist, album, title);
+
+// Search for a streamable URL for a song similar to searchquery
+instance.search(someId2, searchquery);
+```
+
 ### URL Lookup
 
 As an inverse for the lookup of (Artist, Title) -> stream-URL, many resolvers have the `urllookup` capability to resolve from a URL pointing to a music service to artist/album/playlist/.. that is encoded in the URL.
