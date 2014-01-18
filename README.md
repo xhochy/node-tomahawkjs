@@ -89,3 +89,48 @@ if (context.hasCapability('urllookup')) {
   }
 }
 ```
+
+### Collection Browsing
+
+Resolver that have the `browsable` capability export the whole collection of music material that can be streamed from them.
+The browsing of the collection is done by pulling the relevant information on demand.
+
+```javascript
+
+// Handler for the list of artists (string[])
+context.on('artists-result', function (qid, artists) {
+  console.log('Got a list of ' + artists.length + ' artists');
+  
+  // Query the albums for the first artist
+  instance.albums(qid + artists[0], artists[0]);
+});
+
+// Handler for a list of albums (string[])
+context.on('album-result', function(qid, artist, albums) {
+  console.log('Got a list of ' + albums.length + ' albums for artist ' + artist);
+  
+  // Query the first album for all its tracks
+  instance.tracks(qid + album, artist, album);
+});
+
+// Handler for a list of tracks for an album
+content.on('albumtrack-results', function (qid, artist, album, tracks) {
+  console.log('Got a list of ' + tracks.length + ' songs on ' + album + ' by ' + artist);
+  console.log('The first song is called ' + tracks[0].track);
+});
+
+
+if (context.hasCapability('browsable')) {
+  // Get basic information about the collection
+  var info = instance.collection();
+  // Not all collections support the retrieval of the total number of tracks
+  if (info.trackcount == null) {
+    console.log('We are browsing the collection ' + info.prettyname + ': ' + info.description);
+  } else {
+    console.log('We are browsing the collection (' + info.trackcount + ' tracks) ' + info.prettyname + ': ' + info.description);
+  }
+  
+  // Query for the list of all artists
+  instance.artists(someQid);
+}
+```
