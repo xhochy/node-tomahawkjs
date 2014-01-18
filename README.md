@@ -44,3 +44,30 @@ Checking for one of these can be done via:
 ```javascript
 context.hasCapability('urllookup')
 ```
+
+### URL Lookup
+
+As an inverse for the lookup of (Artist, Title) -> stream-URL, many resolvers have the `urllookup` capability to resolve from a URL pointing to a music service to artist/album/playlist/.. that is encoded in the URL.
+
+```javascript
+// Define a handler for found URL mappings
+context.on('url-result', function (url, result) {
+  if (result.type == 'track') {
+    console.log('Found URL for track ' + result.artist + ' - ' + result.title);
+  } else if (result.type == 'album') {
+    console.log('Found URL for album ' + result.artist + ' - ' + result.name);
+  } else if (result.type == 'playlist') {
+    console.log('Found URL for playlist ' + result.title);
+  } else if (result.type == 'artist') {
+    console.log('Found URL for artist ' + result.name);
+  }
+});
+
+// Check if resolver has URLLookup capability
+if (context.hasCapability('urllookup')) {
+  // Can we handle this URL?
+  if (instance.canParseUrl(url)) {
+    instance.lookupUrl(url);
+  }
+}
+```
