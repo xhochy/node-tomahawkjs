@@ -98,7 +98,7 @@ The browsing of the collection is done by pulling the relevant information on de
 ```javascript
 
 // Handler for the list of artists (string[])
-context.on('artists-result', function (qid, artists) {
+context.on('artist-results', function (qid, artists) {
   console.log('Got a list of ' + artists.length + ' artists');
   
   // Query the albums for the first artist
@@ -106,7 +106,7 @@ context.on('artists-result', function (qid, artists) {
 });
 
 // Handler for a list of albums (string[])
-context.on('album-result', function(qid, artist, albums) {
+context.on('album-results', function(qid, artist, albums) {
   console.log('Got a list of ' + albums.length + ' albums for artist ' + artist);
   
   // Query the first album for all its tracks
