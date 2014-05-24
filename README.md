@@ -18,7 +18,7 @@ var TomahawkJS = require('tomahawkjs');
 TomahawkJS.loadAxe(pathtoaxe, function(err, axe) {
   // TODO: Check for error in err
   // After load the axe, we most likely want to have an instance of the resolver
-  axe.getInstace(function(err, instance_context) {
+  axe.getInstance(function(err, instance_context) {
     // TODO: Check for error in err
     var instance = instance_context.instance;
     // Each Resolver instance runs in its own global JavaScript context
