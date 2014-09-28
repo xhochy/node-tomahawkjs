@@ -1,7 +1,7 @@
 {
   "name": "tomahawkjs",
   "preferGlobal": false,
-  "version": "0.3.1",
+  "version": "0.3.2",
   "author": "Uwe L. Korn <uwelk@xhochy.com>",
   "description": "Implementation of the JS plugins API from Tomahawk for NodeJS",
   "contributors": [],
