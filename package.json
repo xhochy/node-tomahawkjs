@@ -16,7 +16,7 @@
     "player"
   ],
   "dependencies": {
-    "unzip": "~0.1.8",
+    "unzip": "~0.1.11",
     "pullstream": "~0.4.0"
   },
   "license": "MIT",
