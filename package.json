@@ -1,11 +1,14 @@
 {
   "name": "tomahawkjs",
-  "preferGlobal": false,
+  "preferGlobal": true,
   "version": "0.3.4",
   "author": "Uwe L. Korn <uwelk@xhochy.com>",
   "description": "Implementation of the JS plugins API from Tomahawk for NodeJS",
   "contributors": [],
   "main": "./lib/tomahawkjs.js",
+  "bin": {
+    "tomahawkjs": "cli.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/xhochy/tomahawk-nodejs-tomahawkjs.git"
