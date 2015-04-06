@@ -1,12 +1,45 @@
 node-tomahawkjs
 ==========================
 
-Implementation of the JS plugins API from Tomahawk for NodeJS
+Implementation of the JS plugins API from Tomahawk as a library for NodeJS and io.js.
+It also features an executable `tomahawkjs` which can be used to execute resolver functionality from the commandline without the need to write any code.
 
 (This implementation is not fully feature complete compared to the desktop client but [hubot-tomahk](https://github.com/xhochy/hubot-tomahk) is an exmple usage of parts of it)
 
-Usage
------
+tomahawkjs Usage
+----------------
+
+This utility supports calling the typical functionalities of a single resolver. While its main purpose is to support developing resolvers, you can use it also standalone.
+For example given the soundcloud resolver, you can build your own commandline (headless) soundcloud player with just this single commandline:
+
+```
+tomahawkjs resolve soundcloud.axe <artist> <title> | jq -r .url | xargs cvlc
+```
+
+This requires [jq](https://stedolan.github.io/jq/) and [vlc](https://www.videolan.org/) to be installed on your machine.
+
+### Generate a new resolver scaffold
+
+**TODO**
+
+### Resolve a song using a resolver
+
+Resolving a song using a given resolver can either be done with a bundled `.axe` or a directory containing all the files as in a developemnt setting.
+
+```
+tomahawkjs resolve <path-to-resolver> <artist> <title> [<album>]
+```
+
+### Search with a resolver
+
+Search works similarily to resolving but you can specify an arbitrary number of commandline arfuments which will be joined together to form a single search query.
+
+```
+tomahawkjs search <path-to-resolver> <query-part1> [<query-part2> [..]]
+```
+
+Library Usage
+-------------
 
 ### Create a resolver instance
 
