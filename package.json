@@ -19,8 +19,10 @@
     "player"
   ],
   "dependencies": {
-    "unzip": "~0.1.11",
-    "pullstream": "~0.4.0"
+    "async": "^0.9.0",
+    "pullstream": "~0.4.0",
+    "underscore": "^1.8.3",
+    "unzip": "~0.1.11"
   },
   "license": "MIT",
   "engines": {
